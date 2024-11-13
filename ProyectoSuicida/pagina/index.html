@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header class="headder">
+        <a href="#home" class="logo">Outomuro<span>Joaquin</span></a>
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="">yo</a>
+            <a href="">educacion</a>
+            <a href="">skill</a>
+            <a href=""> xd</a>
+            <a href=""> xd</a>
+            <a href=""> xd</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Hi, im <span>joaquin</span></h1>
+            <h3>im a <span>Frontend devloper</span></h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam repellendus itaque eius explicabo tenetur quaerat, beatae aperiam qui numquam et impedit, dolorum, eum suscipit quo. Minus quisquam fuga excepturi fugiat!</p>
+
+            <div class="social-icons">
+                <a href="">
+                    <i class="bx bxl-github"></i>
+                </a>
+                <a href="">
+                    <i class="bx bxl-linkedin-square"></i>
+                </a>
+                <a href="">
+                    <i class="bx bxl-instagram-alt"></i>
+                </a>
+                <a href="">
+                    <i class="bx bxl-twitter"></i>
+                </a>
+            </div>
+
+            <div class="btngroup">
+                <a href="" class="btn">hire</a>
+                <a href="#contact" class="btn">Contact</a>
+            </div>
+        </div>
+
+        <!-- Aquí es donde se carga la imagen -->
+        <div class="home-img">
+            <img id="imagen" src="img/negro.jpg" alt="Imagen" />
+        </div>
+    </section>
+
+    <script>
+        let idActual = 1; // Comienza con la primera imagen
+        
+        function cargarImagen(id) {
+            fetch(`/img/${id}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Imagen no encontrada");
+                    }
+                    return response.blob();
+                })
+                .then(imagenBlob => {
+                    const imgElement = document.getElementById('imagen');
+                    const imgURL = URL.createObjectURL(imagenBlob);
+                    imgElement.src = imgURL;
+                    imgElement.alt = `Imagen ${id}`;
+                })
+                .catch(error => {
+                    console.error('Error al cargar imagen:', error);
+                    const imgElement = document.getElementById('imagen');
+                    imgElement.src = "";
+                    imgElement.alt = "Imagen no encontrada";
+                });
+        }
+
+        // Llamar la función de cargar la imagen al inicio
+        cargarImagen(idActual);
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
