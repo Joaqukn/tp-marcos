@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord page</title>
+</head>
+<body>
+    <style>
+        /* Hacer que el body y html ocupen toda la pantalla */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* Asegurarse de que la imagen ocupe toda la pantalla */
+        img {
+            width: 100vw;   /* Ancho de la ventana completa */
+            height: 100vh;  /* Altura de la ventana completa */
+            object-fit: cover; /* Asegura que la imagen cubra toda la pantalla sin distorsionarse */
+            position: absolute; /* Asegura que se ubique por encima de cualquier otro contenido */
+            top: 0;
+            left: 0;
+        }
+
+        /* Puedes agregar otros estilos aquí, como texto sobre la imagen */
+        h1 {
+            position: absolute;
+            color: white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+        }
+    </style>
+     <script>
+        let idDiscord = 1;
+    
+        function cargarImagen(id, elementId) {
+            fetch(`/img2/${id}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Imagen no encontrada");
+                    }
+                    return response.blob();
+                })
+                .then(imagenBlob => {
+                    const imgElement = document.getElementById(elementId);
+                    const imgURL = URL.createObjectURL(imagenBlob);
+                    imgElement.src = imgURL;
+                    imgElement.alt = `Imagen ${id}`;
+                })
+                .catch(error => {
+                    console.error('Error al cargar la imagen:', error);
+                    const imgElement = document.getElementById(elementId);
+                    imgElement.src = "";
+                    imgElement.alt = "Imagen no encontrada";
+                });
+        }
+    
+        cargarImagen(idDiscord, 'discord-home');
+    </script>
+    <img id="discord-home" src="" alt="discord-home">
+    <h1>me dio paja hacer una pagina full para ds</h1>
+</body>
+</html>

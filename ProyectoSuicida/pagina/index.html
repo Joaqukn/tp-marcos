@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,34 +8,38 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
-    <header class="headder">
-        <a href="#home" class="logo">Outomuro<span>Joaquin</span></a>
+    <header class="header">
+        <a href="#home" class="logo">Joaquin<span>Outomuro</span></a>
         <i class="bx bx-menu" id="menu-icon"></i>
         <nav class="navbar">
-            <a href="">yo</a>
-            <a href="">educacion</a>
-            <a href="">skill</a>
-            <a href=""> xd</a>
-            <a href=""> xd</a>
-            <a href=""> xd</a>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">skills</a>
+            <a href="#projects">Proyectos</a>
+            <a href="#contact">contactos</a>
+            <i class="bx bx-x" id="close-icon"></i>
         </nav>
     </header>
 
     <section class="home" id="home">
         <div class="home-content">
-            <h1>Hi, im <span>joaquin</span></h1>
-            <h3>im a <span>Frontend devloper</span></h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam repellendus itaque eius explicabo tenetur quaerat, beatae aperiam qui numquam et impedit, dolorum, eum suscipit quo. Minus quisquam fuga excepturi fugiat!</p>
+            <h1>Hola, soy <span>Joaquin</span></h1>
+            <h3 class="typing-text">Soy <span></span></h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam repellendus itaque eius explicabo tenetur
+                quaerat, beatae aperiam qui numquam et impedit, dolorum, eum suscipit quo. Minus quisquam fuga excepturi
+                fugiat!</p>
+    
 
             <div class="social-icons">
-                <a href="">
+                <a href="https://github.com/Joaqukn">
                     <i class="bx bxl-github"></i>
                 </a>
-                <a href="">
-                    <i class="bx bxl-linkedin-square"></i>
+                <a href="ds.html">
+                    <i class="bx bxl-discord"></i>
                 </a>
-                <a href="">
+                <a href="https://www.instagram.com/bbaduhsa/">
                     <i class="bx bxl-instagram-alt"></i>
                 </a>
                 <a href="">
@@ -42,22 +47,30 @@
                 </a>
             </div>
 
-            <div class="btngroup">
+            <div class="btn-group">
                 <a href="" class="btn">hire</a>
                 <a href="#contact" class="btn">Contact</a>
             </div>
         </div>
 
-        <!-- Aquí es donde se carga la imagen -->
         <div class="home-img">
-            <img id="imagen" src="img/negro.jpg" alt="Imagen" />
+            <img id="home-image" src="" alt="Imagen" />
         </div>
     </section>
 
     <script>
-        let idActual = 1; // Comienza con la primera imagen
-        
-        function cargarImagen(id) {
+        let idActual = 1;
+        let idAbout = 2;
+        let idSkill = 3;
+        let idSkill2 = 4;
+        let idSkill3 = 5;
+        let idSkill4 = 6;
+        let idSkill5 = 7;
+        let idSkill6 = 8;
+        let idSkill7 = 9;
+        let idSkill8 = 10;
+    
+        function cargarImagen(id, elementId) {
             fetch(`/img/${id}`)
                 .then(response => {
                     if (!response.ok) {
@@ -66,23 +79,198 @@
                     return response.blob();
                 })
                 .then(imagenBlob => {
-                    const imgElement = document.getElementById('imagen');
+                    const imgElement = document.getElementById(elementId);
                     const imgURL = URL.createObjectURL(imagenBlob);
                     imgElement.src = imgURL;
                     imgElement.alt = `Imagen ${id}`;
                 })
                 .catch(error => {
-                    console.error('Error al cargar imagen:', error);
-                    const imgElement = document.getElementById('imagen');
+                    console.error('Error al cargar la imagen:', error);
+                    const imgElement = document.getElementById(elementId);
                     imgElement.src = "";
                     imgElement.alt = "Imagen no encontrada";
                 });
         }
-
-        // Llamar la función de cargar la imagen al inicio
-        cargarImagen(idActual);
+    
+        cargarImagen(idActual, 'home-image');
+        cargarImagen(idAbout, 'about-image');
+        cargarImagen(idSkill, 'skill-image');
+        cargarImagen(idSkill2, 'skill2-image');
+        cargarImagen(idSkill3, 'skill3-image');
+        cargarImagen(idSkill4, 'skill4-image');
+        cargarImagen(idSkill5, 'skill5-image');
+        cargarImagen(idSkill6, 'skill6-image');
+        cargarImagen(idSkill7, 'skill7-image');
+        cargarImagen(idSkill8, 'skill8-image');
     </script>
+    
 
+    <section class="about" id="about">
+        <div class="about-img">
+            <img id="about-image" src="" alt="Imagen" />
+        </div>
+
+        <div class="about-content">
+            <h2>about<span>me</span></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia recusandae laboriosam magnam dicta,
+                velit culpa perferendis officiis distinctio, cupiditate, reprehenderit illo placeat reiciendis omnis!
+                Debitis esse harum architecto! Incidunt, blanditiis?</p>
+                <a href="#home" class="btn">Home</a>
+        </div>
+    </section>
+    
+    <section class="skills" id="skills">
+        <h2 class="heading">Skills</h2>
+        <div class="container">
+            <div class="row" id="skillscontainer">
+                <div class="bar">
+                    <div class="info">
+                        <img id="skill-image" src="" alt="Imagen de habilidad" />
+                        <span>HTML</span>
+                    </div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img id="skill2-image" src="" alt="Imagen de habilidad" />
+                        <span>CSS</span>
+                    </div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img id="skill3-image" src="" alt="Imagen de habilidad" />
+                        <span>C++</span>
+                    </div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img id="skill4-image" src="" alt="Imagen de habilidad" />
+                        <span>Python</span>
+                    </div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img id="skill5-image" src="" alt="Imagen de habilidad" />
+                        <span>Unity</span>
+                    </div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img id="skill6-image" src="" alt="Imagen de habilidad" />
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img id="skill7-image" src="" alt="Imagen de habilidad" />
+                        <span>Lector y Escritor</span>
+                    </div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img id="skill8-image" src="" alt="Imagen de habilidad" />
+                        <span>Dibujante (tal vez diseñador grafico)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="heading-container">
+            <h2 class="heading">Mis Proyectos</h2>
+        </div>
+    
+        <div class="projects-counter">
+            <h3>Proyectos realizados</h3>
+            <div class="counter">
+                <span>+50</span>
+            </div>
+        </div>
+    
+        <div class="projects-container">
+            <ul class="projects-list">
+                <li class="project-item">
+                    <div class="project-content">
+                        <h3>Proyecto 1</h3>
+                        <p>Descripción detallada del primer proyecto realizado. Aquí se explica todo lo que se ha hecho en el proyecto y cómo se resolvieron los problemas.</p>
+                    </div>
+                </li>
+                <li class="project-item">
+                    <div class="project-content">
+                        <h3>Proyecto 2</h3>
+                        <p>Descripción detallada del segundo proyecto. Explicación de los objetivos y resultados alcanzados en este proyecto en particular.</p>
+                    </div>
+                </li>
+                <li class="project-item">
+                    <div class="project-content">
+                        <h3>Proyecto 3</h3>
+                        <p>Descripción del tercer proyecto, detallando las herramientas utilizadas y los desafíos superados.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="heading-container">
+            <h2 class="heading">Contáctame</h2>
+        </div>
+
+        <div class="contact-form-container">
+            <form action="#" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required placeholder="Tu correo electrónico">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" required placeholder="Escribe tu mensaje" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="social-icons-container">
+        <div class="social-icons">
+            <a href="https://github.com/Joaqukn">
+                <i class="bx bxl-github"></i>
+            </a>
+            <a href="">
+                <i class="bx bxl-discord"></i>
+            </a>
+            <a href="https://www.instagram.com/bbaduhsa/">
+                <i class="bx bxl-instagram-alt"></i>
+            </a>
+            <a href="">
+                <i class="bx bxl-twitter"></i>
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>@copy; 2024 xd. Todos los derechos reservados.</p>
+    </footer>
+    
+    
     <script src="script.js"></script>
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const navbar = document.querySelector('.navbar');
+        const closeIcon = document.getElementById('close-icon');
+    
+        menuIcon.addEventListener('click', () => {
+            navbar.classList.add('active');
+        });
+
+        closeIcon.addEventListener('click', () => {
+            navbar.classList.remove('active');
+        });
+    </script>
+    
 </body>
 </html>
